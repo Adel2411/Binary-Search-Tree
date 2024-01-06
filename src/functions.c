@@ -7,6 +7,10 @@
 //create method :
 nodeP createNode(int value) {
     nodeP new_node = malloc(sizeof(node));
+    if (new_node == NULL) {
+        printf("Error: Could not allocate memory for the new node.\n");
+        exit(-1);
+    }
     new_node->data = value;
     new_node->left = NULL;
     new_node->right = NULL;
@@ -27,9 +31,18 @@ nodeP insertValue(nodeP root, int data) {
 }
 
 
-//display methods :
+//display method (infixe) ordre croissat :
 void displayTree(nodeP root) {
+    if (root == NULL)
+        return;
+
+    if (root->left != NULL)
+        displayTree(root->left);
     
+    printf("%3d", root->data);
+    
+    if (root->right != NULL)
+        displayTree(root->right);
 }
 
 

@@ -17,5 +17,8 @@ int main(int argc, char const *argv[])
         root = insertValue(root, tab[i]);
     }
 
+    printf("the content of the BST is : ");
+    displayTree(root);
+    printf("\n\n");
     return 0;
 }
