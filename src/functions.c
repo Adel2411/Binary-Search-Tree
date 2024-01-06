@@ -4,23 +4,32 @@
 #include "functions.h"
 
 
-//insert methods :
-void insertNode(node node) {
+//create method :
+nodeP createNode(int value) {
+    nodeP new_node = malloc(sizeof(node));
+    new_node->data = value;
+    new_node->left = NULL;
+    new_node->right = NULL;
+}
 
-} 
+//insert method :
+nodeP insertValue(nodeP root, int data) {
+    if (root == NULL) {
+        return createNode(data);
+    }
 
-node insertHelper(node root, node node) {
-
+    if (root->data < data)
+        root->right = insertValue(root->right, data);
+    else
+        root->left = insertValue(root->left, data);
+    
+    return root;
 }
 
 
 //display methods :
-void displayTree() {
-
-}
-
-void displayHelper(node root) {
-
+void displayTree(nodeP root) {
+    
 }
 
 
@@ -29,7 +38,7 @@ bool searchNode(int data) {
 
 }
 
-bool searchHelper(node root, int data) {
+bool searchHelper(nodeP root, int data) {
 
 }
 
@@ -39,16 +48,16 @@ void removeNode(int data) {
 
 }
 
-node removeHelper(node root, int data) {
+nodeP removeHelper(nodeP root, int data) {
 
 }
 
 
 //functions used to help the remove method :
-int successor(node root) {
+int successor(nodeP root) {
 
 }
 
-int predecessor(node root) {
+int predecessor(nodeP root) {
 
 }

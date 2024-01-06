@@ -9,27 +9,29 @@
 typedef struct node
 {
     int data;
-    struct node* next;
+    struct node* left;
+    struct node* right;
 }node, *nodeP;
 
-//insert methods :
-void insertNode(node node);
-node insertHelper(node root, node node);
+//create method : 
+nodeP createNode(int value);
 
-//display methods :
-void displayTree();
-void displayHelper(node root);
+//insert method :
+nodeP insertValue(nodeP root, int data);
+
+//display method :
+void displayTree(nodeP root);
 
 //search methods :
 bool searchNode(int data);
-bool searchHelper(node root, int data);
+bool searchHelper(nodeP root, int data);
 
 //remove methods :
 void removeNode(int data);
-node removeHelper(node root, int data);
+nodeP removeHelper(nodeP root, int data);
 
 //suppresions helper methods
-int successor(node root);
-int predecessor(node root);
+int successor(nodeP root);
+int predecessor(nodeP root);
 
 #endif
