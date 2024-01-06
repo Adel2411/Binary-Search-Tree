@@ -47,12 +47,16 @@ void displayTree(nodeP root) {
 
 
 //search methods :
-bool searchNode(int data) {
+bool searchValue(nodeP root, int data) {
+    if (root == NULL)
+        return false;
+    if (root->data == data)
+        return true;
 
-}
-
-bool searchHelper(nodeP root, int data) {
-
+    if (root->data < data)
+        return searchValue(root->right, data);
+    else
+        return searchValue(root->left, data);
 }
 
 

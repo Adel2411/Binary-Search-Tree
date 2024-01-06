@@ -23,8 +23,7 @@ nodeP insertValue(nodeP root, int data);
 void displayTree(nodeP root);
 
 //search methods :
-bool searchNode(int data);
-bool searchHelper(nodeP root, int data);
+bool searchValue(nodeP root, int data);
 
 //remove methods :
 void removeNode(int data);
