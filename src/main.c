@@ -12,8 +12,8 @@ int main(int argc, char const *argv[])
     // Create a new binary search tree and insert elements into it :
     int tab[8] = {17, 2, 36, 8, 22, 12, 18, 10};
     
-    nodeP root = createNode(tab[0]);
-    for (size_t i = 1; i < sizeof(tab)/sizeof(*tab); ++i) {
+    nodeP root = NULL;
+    for (size_t i = 0; i < 8; ++i) {
         root = insertValue(root, tab[i]);
     }
 
@@ -30,5 +30,15 @@ int main(int argc, char const *argv[])
         printf("number %d doesn't exist in the BST", x);
     printf("\n\n");
     
+    printf("Enter a number to remove : ");
+    scanf("%d", &x);
+    root = removeValue(root, x);
+    if (root == NULL)
+        printf("The value is not in the tree\n");
+    else {
+        printf("the content of the BST after deleting %d is : ", x);
+        displayTree(root);
+    }
+    printf("\n\n");
     return 0;
 }

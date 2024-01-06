@@ -26,11 +26,9 @@ void displayTree(nodeP root);
 bool searchValue(nodeP root, int data);
 
 //remove methods :
-void removeNode(int data);
-nodeP removeHelper(nodeP root, int data);
+nodeP removeValue(nodeP root, int data);
 
-//suppresions helper methods
-int successor(nodeP root);
-int predecessor(nodeP root);
+//function added to help the remove method :
+nodeP findMin(nodeP node);
 
 #endif

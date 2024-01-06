@@ -61,20 +61,44 @@ bool searchValue(nodeP root, int data) {
 
 
 //remove methods :
-void removeNode(int data) {
+nodeP removeValue(nodeP root, int data) {
+    if (root == NULL)
+        return NULL;
 
+    if (data < root->data)
+    {
+        root->left =  removeValue(root->left, data);
+        return root;
+    } else if (data > root->data)
+    {
+        root->right = removeValue(root->right, data);
+        return root;
+    } else {
+        if (root->left == NULL)
+        {
+            nodeP temp =  root->right;
+            free(root);
+            return temp;
+        }
+        if (root->right == NULL)
+        {
+            nodeP temp =  root->left;
+            free(root);
+            return temp;
+        }
+        //case where the node  to be deleted has two children :
+        nodeP temp = findMin(root->right);
+        root->data = temp->data;
+        root->right = removeValue(root->right, temp->data);
+    }
+    return root;
 }
 
-nodeP removeHelper(nodeP root, int data) {
 
-}
-
-
-//functions used to help the remove method :
-int successor(nodeP root) {
-
-}
-
-int predecessor(nodeP root) {
-
+//function added to help the remove method :
+nodeP findMin(nodeP node) {
+    while (node->left != NULL) {
+        node = node->left;
+    }
+    return node;
 }
